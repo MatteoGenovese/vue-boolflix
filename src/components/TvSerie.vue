@@ -1,15 +1,14 @@
 <template>
-    <div class="movie">
-        Titolo: {{movie.title}} <br>
-        Titolo Originale: {{movie.original_title}} <br>
-        <country-flag :country='movie.original_language' size='normal'/> <br>
-        Voto: {{movie.vote_average}} <br>
+    <div class="tv-serie">
+        Titolo: {{tvSerie.name}} <br>
+        Titolo Originale: {{tvSerie.original_name}} <br>
+        <country-flag :country='tvSerie.original_language' size='normal'/> <br>
+        Voto: {{tvSerie.vote_average}} <br>
         <br>
         <br>
-
-
-
     </div>
+
+
 
 </template>
 
@@ -18,10 +17,9 @@
 import CountryFlag from 'vue-country-flag';
 
 export default {
-    name: 'Movie',
-
+    name: 'TvSerie',
     props: {
-        movie: {
+        tvSerie: {
             type: Object,
             required: true,
         },
@@ -34,7 +32,7 @@ export default {
 </script>
 
 <style>
-.movie{
+.tv-serie{
     border: 1px solid black;
 }
 </style>

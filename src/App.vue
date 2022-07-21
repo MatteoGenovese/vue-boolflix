@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header @search="searchFilm" />
-    <Main :movies="cleanedMoviesList" />
+    <Header @search="searchFilmAndTvSeries" />
+    <Main :movies="cleanedMoviesList" :tvSeries="cleanedTvSeriesList" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
     Main,
   },
   methods: {
-    searchFilm(needle) {
+    searchFilmAndTvSeries(needle) {
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=8b59d4e5705275542674ad47f794ccf6&query=${needle}`)
         .then((result) => {
           this.moviesFromApi = result.data.results;
@@ -27,8 +27,17 @@ export default {
         .catch((error) => {
           console.warn(error);
         })
-    },
 
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=8b59d4e5705275542674ad47f794ccf6&query=${needle}`)
+        .then((result) => {
+          this.tvSeriesFromApi = result.data.results;
+          this.getTvSeriesList();
+          this.printTvSeriesList();
+        })
+        .catch((error) => {
+          console.warn(error);
+        })
+    },
     getMoviesList() {
       this.cleanedMoviesList = [];
       this.moviesFromApi.forEach(movie => {
@@ -41,8 +50,24 @@ export default {
       });
     },
     printMoviesList() {
-      this.cleanedMoviesList.forEach(movie => {
+      this.cleanedTvSeriesList.forEach(movie => {
         console.log(movie)
+      });
+    },
+    getTvSeriesList() {
+      this.cleanedTvSeriesList = [];
+      this.tvSeriesFromApi.forEach(tvSerie => {
+        this.cleanedTvSeriesList.push({
+          'name': tvSerie.name,
+          'original_name': tvSerie.original_name,
+          'original_language': tvSerie.original_language,
+          'vote_average': tvSerie.vote_average
+        });
+      });
+    },
+    printTvSeriesList() {
+      this.cleanedTvSeriesList.forEach(tvSerie => {
+        console.log(tvSerie)
       });
     },
   },
@@ -50,6 +75,9 @@ export default {
     return {
       moviesFromApi: [],
       cleanedMoviesList: [],
+
+      tvSeriesFromApi: [],
+      cleanedTvSeriesList: [],
     }
   },
 }

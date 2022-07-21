@@ -1,25 +1,25 @@
 <template>
-    <div class="list-of-movies">
-        <Movie v-for="(movie,index) in movies" 
+    <div class="list-of-tv-series">
+        <TvSerie v-for="(tvSerie,index) in tvSeries" 
         :key="index"
-        :movie="movie"
+        :tvSerie="tvSerie"
         />
     </div>
 </template>
 
 <script>
-import Movie from './Movie.vue';
+import TvSerie from './TvSerie.vue';
 
 export default {
-    name: 'MoviesList',
+    name: 'TvSeriesList',
     props: {
-        movies: {
+        tvSeries: {
             type: Array,
             required: true,
         },
     },
     components: {
-        Movie,
+        TvSerie,
     }
 }
 </script>
