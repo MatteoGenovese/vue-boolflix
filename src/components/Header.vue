@@ -1,6 +1,7 @@
 <template>
 <header>
-  ciao sono l'header
+  <input type="text">
+  <button></button>
 </header>
 </template>
 
