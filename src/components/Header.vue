@@ -1,13 +1,18 @@
 <template>
 <header>
-  <input type="text">
-  <button></button>
+  <input type="text" v-model="inputText">
+  <button @click="$emit('search', inputText)">Invio</button>
 </header>
 </template>
 
 <script>
 export default {
   name: 'Header',
+  data: function () {
+    return {
+      inputText:"",
+    }
+  },
   props: {
   }
 }
