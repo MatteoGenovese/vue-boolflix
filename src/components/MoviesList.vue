@@ -1,6 +1,9 @@
 <template>
     <div class="list-of-movies">
-        <Movie />
+        <Movie v-for="(movie,index) in movies" 
+        :key="index"
+        :movie="movie"
+        />
     </div>
 </template>
 
@@ -8,12 +11,14 @@
 import Movie from './Movie.vue';
 export default {
     props: {
-        Movie,
         movies: {
             type: Array,
             required: true,
         },
     },
+    components: {
+        Movie,
+    }
 
 }
 </script>

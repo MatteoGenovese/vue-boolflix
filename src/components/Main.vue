@@ -1,21 +1,23 @@
 <template>
   <main>
-    <!-- <ListMovies :movies="movies" /> -->
+    <MoviesList :movies="movies" />
+
   </main>
 </template>
 
 <script>
-import ListMovies from './ListMovies.vue';
+import MoviesList from './MoviesList.vue';
 
 export default {
   name: 'Main',
   props: {
-    ListMovies,
     movies: {
       type: Array,
       required: true,
     },
-
+  },
+  components: {
+    MoviesList,
   }
 
 
