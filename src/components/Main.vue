@@ -2,7 +2,6 @@
   <main>
     <h1>film</h1>
     <MoviesList :movies="movies" />
-
     <br>
     <br>
     <br>
