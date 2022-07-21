@@ -3,6 +3,7 @@
         <TvSerie v-for="(tvSerie,index) in tvSeries" 
         :key="index"
         :tvSerie="tvSerie"
+        
         />
     </div>
 </template>
