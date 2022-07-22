@@ -81,6 +81,9 @@ $card_height: calc( $card_width * 1.5 );
     flex-direction: column;
     justify-content: center;
     
+    &:hover{
+        cursor: pointer;
+    }
 
     ul {
         list-style: none;
