@@ -1,7 +1,9 @@
 <template>
     <div class="movie">
         <div class="front">
-            <img :src="basicImageUrl + poster_sizes[3] + movie.poster_path" alt=""> <br></br>
+
+            <img v-if="movie.poster_path!=null" :src="basicImageUrl + poster_sizes[3] + movie.poster_path">
+
         </div>
         <div class="back d-none">
             <ul>
@@ -69,7 +71,7 @@ export default {
         list-style: none;
     }
     img{
-        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 }
