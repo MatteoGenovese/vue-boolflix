@@ -1,11 +1,14 @@
 <template>
     <div>
 
-            <h2>Movies</h2>
-            <Movie v-for="movie in movies" :key="movie.id" :movie="movie"  />
-
-            <h2>Tv Series</h2>
+        <h2>Movies</h2>
+        <div class="list-of-movies">
+            <Movie v-for="movie in movies" :key="movie.id" :movie="movie" />
+        </div>
+        <h2>Tv Series</h2>
+        <div class="list-of-series">
             <Serie v-for="tvSerie in tvSeries" :key="tvSerie.id" :tvSerie="tvSerie" />
+        </div>
 
     </div>
 
@@ -34,5 +37,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" >
+.list-of-movies,
+.list-of-series{
+    display : flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 </style>

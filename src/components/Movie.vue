@@ -1,21 +1,22 @@
 <template>
     <div class="movie">
-        Image: <img :src="basicImageUrl + poster_sizes[0] + movie.poster_path" alt=""> <br>
-        Titolo: {{ movie.title }} <br>
-        Titolo Originale: {{ movie.original_title }} <br>
-        Lingua: <country-flag :country='movie.original_language' size='normal' /> <br>
-        <star-rating
-        :increment="1"
-        :max-rating="5"
-        inactive-color="#999999"
-        active-color="#F8D36B"
-        :star-size="20"
-        :read-only="true"
-        :rating="movie.vote_average/2"
-        >
-        </star-rating>
-        <br>
-        <br>
+        <div class="front">
+            <img :src="basicImageUrl + poster_sizes[3] + movie.poster_path" alt=""> <br></br>
+        </div>
+        <div class="back d-none">
+            <ul>
+                <li>Titolo: {{ movie.title }}</li>
+                <li>Titolo Originale: {{ movie.original_title }}</li>
+                <li>Lingua:
+                    <country-flag :country='movie.original_language' size='normal' />
+                </li>
+                <li>
+                    <star-rating :increment="1" :max-rating="5" inactive-color="#999999" active-color="#F8D36B"
+                        :star-size="20" :read-only="true" :rating="movie.vote_average / 2">
+                    </star-rating>
+                </li>
+            </ul>
+        </div>
     </div>
 
 </template>
@@ -57,8 +58,19 @@ export default {
 }
 </script>
 
-<style>
-.movie {
+<style lang="scss">
+.movie, .tv-serie{
     border: 1px solid black;
+    width: calc( ( 100vw / 5 ) - 10px );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    ul{
+        list-style: none;
+    }
+    img{
+        width: 100%;
+        object-fit: cover;
+    }
 }
 </style>
