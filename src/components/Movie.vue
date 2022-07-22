@@ -6,9 +6,6 @@
         Voto: {{movie.vote_average}} <br>
         <br>
         <br>
-
-
-
     </div>
 
 </template>

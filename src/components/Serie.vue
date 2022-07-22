@@ -4,7 +4,6 @@
         Titolo Originale: {{tvSerie.original_name}} <br>
         <country-flag :country='tvSerie.original_language' size='normal'/> <br>
         Voto: {{tvSerie.vote_average}} <br>
-        
         <br>
         <br>
     </div>
@@ -18,7 +17,7 @@
 import CountryFlag from 'vue-country-flag';
 
 export default {
-    name: 'TvSerie',
+    name: 'Serie',
     props: {
         tvSerie: {
             type: Object,

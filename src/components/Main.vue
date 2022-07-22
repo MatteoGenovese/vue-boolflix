@@ -1,21 +1,11 @@
 <template>
   <main>
-    <h1>film</h1>
-    <MoviesList :movies="movies" />
-    <br>
-    <br>
-    <br>
-    <h1>serie tv</h1>
-
-    <TvSeriesList :tvSeries="tvSeries" />
-    
-
+    <VideoContentsLists :movies="movies" :tvSeries="tvSeries"/>
   </main>
 </template>
 
 <script>
-import MoviesList from './MoviesList.vue';
-import TvSeriesList from './TvSeriesList.vue';
+import VideoContentsLists from './VideoContentsLists.vue';
 
 export default {
   name: 'Main',
@@ -30,8 +20,7 @@ export default {
     },
   },
   components: {
-    MoviesList,
-    TvSeriesList
+    VideoContentsLists,
   }
 
 
