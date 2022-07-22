@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     searchFilmAndTvSeries(needle) {
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${needle}`)
+      axios.get(`${this.apiMoviesUrl}?api_key=${this.apiKey}&query=${needle}`)
         .then((result) => {
           this.moviesFromApi = result.data.results;
           
@@ -27,7 +27,7 @@ export default {
           console.warn(error);
         })
 
-      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=${needle}`)
+      axios.get(`${this.apiTvsUrl}?api_key=${this.apiKey}&query=${needle}`)
         .then((result) => {
           this.tvSeriesFromApi = result.data.results;
           
@@ -41,7 +41,8 @@ export default {
     return {
 
       apiKey: '8b59d4e5705275542674ad47f794ccf6',
-
+      apiMoviesUrl: 'https://api.themoviedb.org/3/search/movie',
+      apiTvsUrl:'https://api.themoviedb.org/3/search/tv',
       moviesFromApi: [],
       tvSeriesFromApi: [],
 
