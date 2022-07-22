@@ -1,8 +1,9 @@
 <template>
     <div class="movie">
-        <div class="front">
+        <div class="front ">
 
-            <img v-if="movie.poster_path!=null" :src="basicImageUrl + poster_sizes[3] + movie.poster_path">
+            <img v-if=" movie.poster_path != null" :src="basicImageUrl + poster_sizes[3] + movie.poster_path" :alt="movie.poster_path">
+            <img v-else :src="basicImageUrl + poster_sizes[3] + movie.poster_path" class="d-flex justify-content-center" :alt="movie.title">
 
         </div>
         <div class="back d-none">
