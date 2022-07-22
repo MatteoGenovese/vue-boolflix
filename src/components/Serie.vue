@@ -1,9 +1,9 @@
 <template>
     <div>
         <transition name="rotate">
-            <div class="tv-serie" @click="showFront=(!showFront)">
+            <div class="tv-serie" @mouseover="showFront=false" @mouseleave="showFront=true">
                 <div class="front" v-if="showFront">
-                    <img v-if="tvSerie.poster_path != null" :src="basicImageUrl + poster_sizes[3] + tvSerie.poster_path"
+                    <img v-if="tvSerie.poster_path != null" class="w-100" :src="basicImageUrl + poster_sizes[3] + tvSerie.poster_path"
                         :alt="tvSerie.poster_path">
                     <img v-else :src="basicImageUrl + poster_sizes[3] + tvSerie.poster_path"
                         class="d-flex justify-content-center" :alt="tvSerie.name">
@@ -67,19 +67,28 @@ export default {
 }
 </script>
 
-<style  lang="scss">
-.movie, .tv-serie{
-    border: 1px solid black;
-    width: calc( ( 100vw / 5 ) - 10px );
+<style scoped lang="scss" >
+$card_width:calc((100vw / 5) - 10px);
+$card_height: calc( $card_width * 1.5 );
+
+.movie,
+.tv-serie {
+
+    width: $card_width;
+    height: $card_height;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    ul{
+    
+
+    ul {
         list-style: none;
     }
-    img{
-        width: 100%;
-        object-fit: cover;
+
+    img {
+        object-fit: contain;
+
     }
 }
 

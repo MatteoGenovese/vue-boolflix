@@ -1,9 +1,9 @@
 <template>
     <div>
         <transition name="rotate">
-            <div class="movie" @click="showFront=(!showFront)">
-                <div class="front" v-if="showFront">
-                    <img v-if="movie.poster_path != null" :src="basicImageUrl + poster_sizes[3] + movie.poster_path"
+            <div class="movie" @mouseover="showFront=false" @mouseleave="showFront=true">
+                <div class="front d-flex align-items-center justify-content-center" v-if="showFront">
+                    <img v-if="movie.poster_path != null" class="w-100" :src="basicImageUrl + poster_sizes[3] + movie.poster_path"
                         :alt="movie.poster_path">
                     <img v-else :src="basicImageUrl + poster_sizes[3] + movie.poster_path"
                         class="d-flex justify-content-center" :alt="movie.title">
@@ -12,8 +12,8 @@
                     <ul>
                         <li>Titolo: {{ movie.title }}</li>
                         <li>Titolo Originale: {{ movie.original_title }}</li>
-                        <li>Lingua:
-                            <country-flag :country='movie.original_language' size='normal' />
+                        <li>Lingua:<country-flag :country='movie.original_language' size='normal' />
+                            {{movie.original_language}}
                         </li>
                         <li>
                             <star-rating :increment="1" :max-rating="5" inactive-color="#999999" active-color="#F8D36B"
@@ -68,23 +68,28 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss" >
+
+$card_width:calc((100vw / 5) - 10px);
+$card_height: calc( $card_width * 1.5 );
+
 .movie,
 .tv-serie {
-    border: 1px solid black;
-    width: calc((100vw / 5) - 10px);
-    
+    width: $card_width;
+    height: $card_height;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 
     ul {
         list-style: none;
     }
 
     img {
-        height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+
     }
 }
 

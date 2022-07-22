@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style scoped lang="scss">
 .list-of-movies,
 .list-of-series{
     display : flex;
