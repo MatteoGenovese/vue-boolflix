@@ -30,7 +30,6 @@ export default {
       axios.get(`${this.apiTvsUrl}?api_key=${this.apiKey}&query=${needle}`)
         .then((result) => {
           this.tvSeriesFromApi = result.data.results;
-          
         })
         .catch((error) => {
           console.warn(error);
@@ -42,7 +41,7 @@ export default {
 
       apiKey: '8b59d4e5705275542674ad47f794ccf6',
       apiMoviesUrl: 'https://api.themoviedb.org/3/search/movie',
-      apiTvsUrl:'https://api.themoviedb.org/3/search/tv',
+      apiTvsUrl:    'https://api.themoviedb.org/3/search/tv',
       moviesFromApi: [],
       tvSeriesFromApi: [],
 
