@@ -2,7 +2,8 @@
     <div class="tv-serie">
 
         <div class="front">
-            <img :src="basicImageUrl+poster_sizes[3]+tvSerie.poster_path" alt="">
+            <img v-if=" tvSerie.poster_path != null" :src="basicImageUrl + poster_sizes[3] + tvSerie.poster_path" :alt="tvSerie.poster_path">
+            <img v-else :src="basicImageUrl + poster_sizes[3] + tvSerie.poster_path" class="d-flex justify-content-center" :alt="tvSerie.name">
         </div>
         <div class="back d-none">
             <ul>
