@@ -2,7 +2,7 @@
     <div class="tv-serie">
 
         <div class="front">
-            <img :src="basicImageUrl+poster_sizes[3]+tvSerie.poster_path" alt=""> <br>
+            <img :src="basicImageUrl+poster_sizes[3]+tvSerie.poster_path" alt="">
         </div>
         <div class="back d-none">
             <ul>
