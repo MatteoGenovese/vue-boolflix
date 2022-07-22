@@ -3,11 +3,11 @@
 
         <h2>Movies</h2>
         <div class="list-of-movies">
-            <Movie v-for="movie in movies" :key="movie.id" :movie="movie" />
+            <Content v-for="movie in movies" :key="movie.id" :content="movie" :isMovie="true"/>
         </div>
         <h2>Tv Series</h2>
         <div class="list-of-series">
-            <Serie v-for="tvSerie in tvSeries" :key="tvSerie.id" :tvSerie="tvSerie" />
+            <Content v-for="tvSerie in tvSeries" :key="tvSerie.id" :content="tvSerie" :isMovie="false" />
         </div>
 
     </div>
@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import Movie from './Movie.vue';
-import Serie from './Serie.vue';
+
+import Content from './Content.vue';
 
 export default {
     name: 'VideoContentsLists',
@@ -31,9 +31,10 @@ export default {
         },
     },
     components: {
-        Movie,
-        Serie,
-    }
+    // Movie,
+    // Serie,
+    Content
+}
 }
 </script>
 
