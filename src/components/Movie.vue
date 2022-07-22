@@ -1,10 +1,19 @@
 <template>
     <div class="movie">
-        Image: <img :src="basicImageUrl+poster_sizes[0]+movie.poster_path" alt="">
+        Image: <img :src="basicImageUrl + poster_sizes[0] + movie.poster_path" alt=""> <br>
         Titolo: {{ movie.title }} <br>
         Titolo Originale: {{ movie.original_title }} <br>
         <country-flag :country='movie.original_language' size='normal' /> <br>
-        Voto: {{ movie.vote_average }} <br>
+        <star-rating
+        :increment="0.5"
+        :max-rating="5"
+        inactive-color="#999999"
+        active-color="#F8D36B"
+        :star-size="20"
+        :read-only="true"
+        :rating="movie.vote_average/2"
+        >
+        </star-rating>
         <br>
         <br>
     </div>
@@ -12,16 +21,13 @@
 </template>
 
 <script>
-// https://www.npmjs.com/package/vue-country-flag
+// https://www.npmjs.com/package/vue-country-flag country flag documentation
 import CountryFlag from 'vue-country-flag';
+// https://www.npmjs.com/package/vue-star-rating star rating documentation
+import StarRating from 'vue-star-rating'
 
 export default {
     name: 'Movie',
-    methods:{
-        getImage(){
-
-        }
-    },
     props: {
         movie: {
             type: Object,
@@ -29,7 +35,8 @@ export default {
         },
     },
     components: {
-        CountryFlag
+        CountryFlag,
+        StarRating
     },
     data: function () {
         return {
