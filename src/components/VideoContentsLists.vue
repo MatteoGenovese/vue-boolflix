@@ -2,7 +2,7 @@
     <div>
 
             <h2>Movies</h2>
-            <Movie v-for="movie in movies" :key="movie.id" :movie="movie" :tvSerie="tvSerie" />
+            <Movie v-for="movie in movies" :key="movie.id" :movie="movie"  />
 
             <h2>Tv Series</h2>
             <Serie v-for="tvSerie in tvSeries" :key="tvSerie.id" :tvSerie="tvSerie" />
