@@ -3,9 +3,9 @@
         Image: <img :src="basicImageUrl+poster_sizes[0]+tvSerie.poster_path" alt=""> <br></br>
         Titolo: {{tvSerie.name}} <br>
         Titolo Originale: {{tvSerie.original_name}} <br>
-        <country-flag :country='tvSerie.original_language' size='normal'/> <br>
+        Lingua: <country-flag :country='tvSerie.original_language' size='normal'/> <br>
         <star-rating
-        :increment="0.5"
+        :increment="1"
         :max-rating="5"
         inactive-color="#999999"
         active-color="#F8D36B"
