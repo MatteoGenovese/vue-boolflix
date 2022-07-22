@@ -73,6 +73,7 @@ export default {
 .tv-serie {
     border: 1px solid black;
     width: calc((100vw / 5) - 10px);
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
