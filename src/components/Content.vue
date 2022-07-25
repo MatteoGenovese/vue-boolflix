@@ -33,6 +33,10 @@
                                 <country-flag :country='"gb"' size='normal' />
                                 {{ content.original_language }}
                             </span>
+                            <span v-if="content.original_language === 'ja'">
+                                <country-flag :country='"jp"' size='normal' />
+                                {{ content.original_language }}
+                            </span>
 
 
                             <span v-else >
