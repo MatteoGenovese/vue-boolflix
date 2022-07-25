@@ -23,16 +23,23 @@
                             Titolo: {{ content.title }}
                             Titolo Originale: {{ content.original_title }}
                         </li>
-
-
                         <li v-else>
                             Titolo: {{ content.name }}
                             Titolo Originale: {{ content.original_name }}
                         </li>
 
                         <li>Lingua:
-                            <country-flag :country='content.original_language' size='normal' />
-                            {{ content.original_language }}
+                            <span v-if="content.original_language === 'en'">
+                                <country-flag :country='"gb"' size='normal' />
+                                {{ content.original_language }}
+                            </span>
+
+
+                            <span v-else >
+                                <country-flag :country='content.original_language' size='normal' />
+                                {{ content.original_language }} 
+
+                            </span>
                         </li>
                         <li>
                             <star-rating :increment="1" :max-rating="5" inactive-color="#999999" active-color="#F8D36B"
