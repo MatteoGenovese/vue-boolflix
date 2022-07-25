@@ -1,7 +1,7 @@
 <template>
     <div>
         <transition name="rotate">
-            <div v-if="!isEmpty" class="content" @mouseover="showFront = false" @mouseleave="showFront = true">
+            <div class="content" @mouseover="showFront = false" @mouseleave="showFront = true">
                 <div class="front d-flex align-items-center justify-content-center" v-if="showFront">
                     <div v-if="isMovie">
                         <img v-if="content.poster_path != null" class="w-100"
@@ -20,37 +20,47 @@
                 <div class="back" v-else>
                     <ul>
                         <li v-if="isMovie">
-                            Titolo: {{ content.title }}
-                            Titolo Originale: {{ content.original_title }}
+                            
+                            <span>Titolo: {{ content.title }}</span> 
+                            <span>Titolo Originale: {{ content.original_title }}</span> 
                         </li>
                         <li v-else>
-                            Titolo: {{ content.name }}
-                            Titolo Originale: {{ content.original_name }}
+                            <span>Titolo: {{ content.name }}</span> 
+                            <span>Titolo Originale: {{ content.original_name }}</span> 
                         </li>
-
                         <li>Lingua:
                             <span v-if="content.original_language === 'en'">
-                                <country-flag :country='"gb"' size='normal' />
-                                {{ content.original_language }}
+                                <country-flag
+                                  :country='"gb"'
+                                  size='small' />
                             </span>
                             <span v-if="content.original_language === 'ja'">
-                                <country-flag :country='"jp"' size='normal' />
-                                {{ content.original_language }}
+                                <country-flag
+                                  :country='"jp"'
+                                  size='small' />
                             </span>
-                            <span v-else >
-                                <country-flag :country='content.original_language' size='normal' />
-                                {{ content.original_language }} 
+                            <span v-else>
+                                <country-flag
+                                  :country='content.original_language'
+                                  size='small' />
                             </span>
+                            <span> {{ content.original_language.toUpperCase() }}</span>
                         </li>
                         <li>
-                            <star-rating :increment="1" :max-rating="5" inactive-color="#999999" active-color="#F8D36B"
-                                :star-size="20" :read-only="true" :rating="content.vote_average / 2">
+                            <star-rating
+                            :increment="1"
+                            :max-rating="5"
+                            inactive-color="#999999"
+                            active-color="#F8D36B"
+                            :star-size="20"
+                            :read-only="true"
+                            :rating="content.vote_average / 2">
                             </star-rating>
                         </li>
+                        <li v-if="content.overview!=''">Descrizione: {{ content.overview }}</li> 
+
                     </ul>
                 </div>
-            </div>
-            <div v-else class="content flex-grow-1" >
             </div>
 
         </transition>
@@ -69,14 +79,16 @@ export default {
     props: {
         content: {
             type: Object,
-
+            required: true,
         },
         isMovie: {
             type: Boolean,
+            required: true,
 
         },
         isEmpty: {
             type: Boolean,
+            required: true,
 
         }
 
@@ -119,19 +131,31 @@ $card_height: calc($card_width * 1.5);
 .content {
     width: $card_width;
     height: $card_height;
-    overflow: hidden;
+        overflow:hidden;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.212);
+    background-color: #000000;
+    color: white;
 
     &:hover {
         cursor: pointer;
+    }
+    .back{
+        overflow:auto;
     }
 
 
     ul {
         list-style: none;
+        li{
+            padding-top: 10px;
+            span{
+                display: inline-block;
+                padding-top: 10px;
+            }
+        }
     }
 
     img {
