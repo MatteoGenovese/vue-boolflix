@@ -6,7 +6,6 @@
             <h2>Movies</h2>
             <div class="list-of-movies" >
                 <Content v-for="movie in movies" :key="movie.id" :content="movie" :isMovie="true" :isEmpty="false"/>
-                <Content :isEmpty="true" v-for="(n,index) in (movies.length % 5)+1" :key="index" :isMovie="false"/>
 
             </div>
         </div>
@@ -15,7 +14,6 @@
             <h2>Tv Series</h2>
             <div class="list-of-series" >
                 <Content v-for="tvSerie in tvSeries" :key="tvSerie.id" :content="tvSerie" :isMovie="false" :isEmpty="false" />
-                <Content :isEmpty="true" v-for="(n,index) in (tvSeries.length % 5)+1" :key="index" :isMovie="false"/>
             </div>
         </div>
 
@@ -52,7 +50,6 @@ export default {
 .list-of-series{
     display : flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     row-gap: 20px;
 }
 
