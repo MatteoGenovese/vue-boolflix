@@ -15,8 +15,8 @@
 
     </nav>
     <div class="search-bar">
-      <input type="text" v-model="inputText" @keyup.enter="$emit('search', inputText)">
-      <button @click="$emit('search', inputText)">Invio</button>
+      <input type="text" v-model="inputText" @keyup.enter="$emit('search', inputText.trim())">
+      <button @click="$emit('search', inputText.trim())">Invio</button>
     </div>
 
   </header>

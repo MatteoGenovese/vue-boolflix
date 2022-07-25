@@ -2,14 +2,21 @@
     <div>
 
         
-        <div class="list-of-movies" v-if="movies.length!=0">
+        <div v-if="movies.length!=0">
             <h2>Movies</h2>
-            <Content v-for="movie in movies" :key="movie.id" :content="movie" :isMovie="true"/>
+            <div class="list-of-movies" >
+                <Content v-for="movie in movies" :key="movie.id" :content="movie" :isMovie="true" :isEmpty="false"/>
+                <Content :isEmpty="true" v-for="(n,index) in (movies.length % 5)+1" :key="index" :isMovie="false"/>
+
+            </div>
         </div>
         
-        <div class="list-of-series" v-if="tvSeries.length!=0">
+        <div v-if="tvSeries.length!=0">
             <h2>Tv Series</h2>
-            <Content v-for="tvSerie in tvSeries" :key="tvSerie.id" :content="tvSerie" :isMovie="false" />
+            <div class="list-of-series" >
+                <Content v-for="tvSerie in tvSeries" :key="tvSerie.id" :content="tvSerie" :isMovie="false" :isEmpty="false" />
+                <Content :isEmpty="true" v-for="(n,index) in (tvSeries.length % 5)+1" :key="index" :isMovie="false"/>
+            </div>
         </div>
 
     </div>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <transition name="rotate">
-            <div class="content" @mouseover="showFront = false, whereIAm()" @mouseleave="showFront = true">
+            <div v-if="!isEmpty" class="content" @mouseover="showFront = false, whereIAm()" @mouseleave="showFront = true">
                 <div class="front d-flex align-items-center justify-content-center" v-if="showFront">
                     <div v-if="isMovie">
                         <img v-if="content.poster_path != null" class="w-100"
@@ -50,6 +50,9 @@
                     </ul>
                 </div>
             </div>
+            <div v-else class="content flex-grow-1" >
+            </div>
+
         </transition>
 
     </div>
@@ -69,6 +72,10 @@ export default {
             required: true,
         },
         isMovie: {
+            type: Boolean,
+            required: true,
+        },
+        isEmpty: {
             type: Boolean,
             required: true,
         }
@@ -106,7 +113,7 @@ export default {
 </script>
 
 <style scoped lang="scss" >
-$card_width: calc((100vw / 5) - 10px);
+$card_width: calc((100vw / 5) - 25px);
 $card_height: calc($card_width * 1.5);
 
 .content {
