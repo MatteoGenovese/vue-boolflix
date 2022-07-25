@@ -77,6 +77,13 @@ header {
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
+    input{
+      margin-right: 10px;
+      }
+      button{
+        padding: 0px 10px;
+        border-radius: 6px;
+      }
   }
 }
 </style>
