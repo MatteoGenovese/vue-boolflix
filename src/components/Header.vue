@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo">
-      <img src="../assets/netflix-logo.png" alt="">
+      BOOLFIX
     </div>
     <nav>
       <ul>
@@ -49,6 +49,11 @@ header {
   padding-right: 10px;
   .logo{
     height: 60px;
+    color: #CC2E25;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight:bolder;
     img{
       height: 100%;
       object-fit: contain;
