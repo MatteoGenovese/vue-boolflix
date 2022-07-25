@@ -39,7 +39,7 @@ export default {
 <style scoped lang="scss">
 
 header {
-  height: 7vh;
+  height: 12vh;
   background-color: #000;
   color: white;
   display: flex;
@@ -55,9 +55,18 @@ header {
     }
   }
   nav{
-    ul{
+      height: 100%;
       display: flex;
+      align-items: center;
+    ul{
+      height: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
       li{
+        height: 100%;
+        display: flex;
+        align-items: center;
         list-style: none;
         padding: 10px;
       }

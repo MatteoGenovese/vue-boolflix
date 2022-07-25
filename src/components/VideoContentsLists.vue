@@ -1,12 +1,14 @@
 <template>
     <div>
 
-        <h2>Movies</h2>
-        <div class="list-of-movies">
+        
+        <div class="list-of-movies" v-if="movies.length!=0">
+            <h2>Movies</h2>
             <Content v-for="movie in movies" :key="movie.id" :content="movie" :isMovie="true"/>
         </div>
-        <h2>Tv Series</h2>
-        <div class="list-of-series">
+        
+        <div class="list-of-series" v-if="tvSeries.length!=0">
+            <h2>Tv Series</h2>
             <Content v-for="tvSerie in tvSeries" :key="tvSerie.id" :content="tvSerie" :isMovie="false" />
         </div>
 

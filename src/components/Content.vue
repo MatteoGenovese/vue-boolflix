@@ -37,12 +37,9 @@
                                 <country-flag :country='"jp"' size='normal' />
                                 {{ content.original_language }}
                             </span>
-
-
                             <span v-else >
                                 <country-flag :country='content.original_language' size='normal' />
                                 {{ content.original_language }} 
-
                             </span>
                         </li>
                         <li>
