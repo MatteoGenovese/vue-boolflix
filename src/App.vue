@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     searchFilmAndTvSeries(needle) {
-      axios.get(`${this.apiMoviesUrl}?api_key=${this.apiKey}&query=${needle}`)
+      axios.get(`${this.apiMoviesUrl}?api_key=${this.apiKey}&query=${needle}&include_adult=false`)
         .then((result) => {
           this.moviesFromApi = result.data.results;
           
@@ -27,7 +27,7 @@ export default {
           console.warn(error);
         })
 
-      axios.get(`${this.apiTvsUrl}?api_key=${this.apiKey}&query=${needle}`)
+      axios.get(`${this.apiTvsUrl}?api_key=${this.apiKey}&query=${needle}&include_adult=false`)
         .then((result) => {
           this.tvSeriesFromApi = result.data.results;
         })

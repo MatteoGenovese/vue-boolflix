@@ -25,18 +25,21 @@
                 </div>
                 <div class="flip-card-back">
                     <ul>
+                        <!-- case: FILM -->
                         <li v-if="isMovie">
                             Titolo: {{ content.title }}
                         </li>
                         <li v-if="isMovie && content.original_title != content.title">
                             Titolo Originale: {{ content.original_title }}
                         </li>
+                        <!-- case: TV SERIE -->
                         <li v-if="!isMovie">
                             Titolo: {{ content.name }}
                         </li>
                         <li v-if="!isMovie && content.original_name != content.name">
                             Titolo Originale: {{ content.original_name }}
                         </li>
+                        <!-- case: information in common -->
                         <li>Lingua:
                             <span v-if="content.original_language === 'en'">
                                 <country-flag :country='"gb"' size='small' />
