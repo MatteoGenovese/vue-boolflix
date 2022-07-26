@@ -3,6 +3,7 @@
     <div class="logo">
       BOOLFIX
     </div>
+    
     <nav>
       <ul>
         <li>Home</li>
@@ -12,8 +13,8 @@
         <li>Aggiunti di recente</li>
         <li>La mia lista</li>
       </ul>
-
     </nav>
+
     <div class="search-bar">
       <input type="text" v-model="inputText" @keyup.enter="$emit('search', inputText.trim())">
       <button @click="$emit('search', inputText.trim())">Invio</button>
