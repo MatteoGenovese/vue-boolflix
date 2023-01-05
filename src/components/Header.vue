@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo">
-      BOOLFIX
+      BOOLFLIX
     </div>
     
     <nav>
@@ -40,7 +40,7 @@ export default {
 <style scoped lang="scss">
 
 header {
-  height: 12vh;
+  height: 4rem;
   background-color: #000;
   color: white;
   display: flex;

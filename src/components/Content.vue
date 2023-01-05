@@ -40,8 +40,8 @@
                             Titolo Originale: {{ content.original_name }}
                         </li>
                         <!-- case: information in common -->
-                        <li>Lingua:
-                            <span v-if="content.original_language === 'en'">
+                        <li>Lingua: 
+                            <span v-if="content.original_language === 'en'" class=" ms-2">
                                 <country-flag :country='"gb"' size='small' />
                             </span>
                             <span v-if="content.original_language === 'ja'">

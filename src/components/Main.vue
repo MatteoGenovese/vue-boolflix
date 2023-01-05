@@ -32,7 +32,7 @@ main{
   padding: 10px;
   background-color: #565456;
   height: 100%;
-  min-height: 88vh;
+  min-height: calc( 100vh - 4rem );
 
 }
 
